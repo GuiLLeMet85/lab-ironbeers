@@ -109,6 +109,10 @@ p {
     font-size: 20px;
 }
 
+a {
+    text-decoration: none;
+}
+
 #beer-section{
     padding: 2vh 2vw;
     display: flex;
@@ -117,23 +121,24 @@ p {
 }
 
 .beer-img {
-    width: 60%;
+    width: 35%;
     margin: 2vh auto;
 }
 
 #beer-section a {
     color: #f7f9f9;
     background-color: #2081c3;
-    padding: 0.5vh 3vw;
+    padding: 1vh 3vw;
     border-radius: 5px;
-    margin: 0.5vh auto;
+    margin: 1.5vh auto;
+    height: 55px;
 }
 footer {
     position: absolute;
     background-color: #0a2c42;
     width: 100%;
     color: #f7f9f9;
-    padding: 0.5vh 4vw;
+    padding: 0.5vh 5vw;
     display: flex;
     justify-content: flex-start;
     margin-top: 5vh;
