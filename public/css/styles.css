@@ -6,8 +6,6 @@ grey: #bfbfbf;
 font-family: Arial, Helvetica, sans-serif;
 */
 
-
-
 html,
 body,
 div,
@@ -82,8 +80,112 @@ details {
 }
 
 
-/* Basic styles, change according to your style */
+/***
+    The new CSS reset - version 1.6.0 (last updated 29.4.2022)
+    GitHub page: https://github.com/elad2412/the-new-css-reset
+***/
 
+
+/*
+    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+    - The "symbol *" part is to solve Firefox SVG sprite bug
+ */
+
+*:where(:not(html, iframe, canvas, img, svg, video):not(svg *, symbol *)) {
+    all: unset;
+    display: revert;
+}
+
+
+/* Preferred box-sizing value */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+
+/* Reapply the pointer cursor for anchor tags */
+
+a,
+button {
+    cursor: revert;
+}
+
+
+/* Remove list styles (bullets/numbers) */
+
+ol,
+ul,
+menu {
+    list-style: none;
+}
+
+
+/* For images to not be able to exceed their container */
+
+img {
+    max-width: 100%;
+}
+
+
+/* removes spacing between cells in tables */
+
+table {
+    border-collapse: collapse;
+}
+
+
+/* revert the 'white-space' property for textarea elements on Safari */
+
+textarea {
+    white-space: revert;
+}
+
+
+/* minimum style to allow to style meter element */
+
+meter {
+    -webkit-appearance: revert;
+    appearance: revert;
+}
+
+
+/* reset default text opacity of input placeholder */
+
+::placeholder {
+    color: unset;
+}
+
+
+/* fix the feature of 'hidden' attribute.
+   display:revert; revert to element instead of attribute */
+
+:where([hidden]) {
+    display: none;
+}
+
+
+/* revert for bug in Chromium browsers
+   - fix for the content editable attribute will work properly. */
+
+:where([contenteditable]) {
+    -moz-user-modify: read-write;
+    -webkit-user-modify: read-write;
+    overflow-wrap: break-word;
+    -webkit-line-break: after-white-space;
+}
+
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+
+:where([draggable="true"]) {
+    -webkit-user-drag: element;
+}
+
+
+/* Basic styles, change according to your style */
 
 body {
     position: relative;
@@ -92,6 +194,7 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     background-color: f7f9f9;
 }
+
 nav.top-menu {
     display: flex;
     flex-direction: row;
@@ -99,8 +202,13 @@ nav.top-menu {
     justify-content: flex-start;
     padding: 1vh 5vw;
 }
+
+a {
+    text-decoration: none !important;
+}
+
 a.link-top {
-    padding: 0.2vh 3vw;
+    padding: 0.2vh 2vw;
     color: #f7f9f9;
     font-size: 16px;
 }
@@ -109,11 +217,26 @@ p {
     font-size: 20px;
 }
 
-a {
-    text-decoration: none;
+h1 {
+    font-size: 4rem;
+    padding: 2vh 1vw;
+    font-weight: 600;
 }
 
-#beer-section{
+h2 {}
+
+h3 {
+    font-size: 1.3rem;
+    padding: 1vh 1vw;
+    font-weight: 600;
+}
+
+.center {
+    text-align: center;
+    ;
+}
+
+#beer-section {
     padding: 2vh 2vw;
     display: flex;
     flex-direction: column;
@@ -121,7 +244,7 @@ a {
 }
 
 .beer-img {
-    width: 35%;
+    width: 25%;
     margin: 2vh auto;
 }
 
@@ -132,7 +255,11 @@ a {
     border-radius: 5px;
     margin: 1.5vh auto;
     height: 55px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
+
 footer {
     position: absolute;
     background-color: #0a2c42;
@@ -147,5 +274,60 @@ footer {
 footer p {
     font-size: 0.9rem;
     padding: 0.5vh 1vw;
+}
 
+
+/*--------------------------------beers -------------------------*/
+
+#random-beer-section {
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 2vh auto;
+}
+
+.beers-section {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 0.5vh 1vw;
+    align-items: baseline;
+}
+
+.beers-section img {
+    width: 125px;
+    padding: 1vh 1vw 2vh;
+}
+
+.beers-section h3 {
+    text-align: center;
+}
+
+.beers-section p {
+    font-size: 0.9rem;
+    text-align: center;
+    color: #03225C;
+}
+
+p.main-text.center {
+    padding: 1vh 1vw;
+    margin-bottom: 1vh;
+}
+
+p.tag.center {
+    padding: 1vh 1vw;
+    margin-bottom: 0.5vh;
+    font-size: 0.9rem;
+    color: #2081c3;
+    font-weight: 600;
+}
+
+.beer {
+    width: 20%;
+    margin: 3vh 2vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
